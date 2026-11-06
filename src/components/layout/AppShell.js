@@ -4,6 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useRouter, usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import Spinner from '../ui/Spinner';
+import NotificationBell from '../ui/NotificationBell';
 import Link from 'next/link';
 import clsx from 'clsx';
 import {
@@ -111,6 +112,7 @@ export default function AppShell({ children, requireRole }) {
               <Home className="h-4 w-4" />
               Homepage
             </Link>
+            <NotificationBell />
             <button
               type="button"
               onClick={() => logout()}

@@ -176,19 +176,26 @@ export default function Home() {
       </header>
 
       {/* ========== BANNER / HERO ========== */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-700 to-teal-800" />
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20 lg:py-24">
+      <section className="relative w-full overflow-hidden aspect-[16/9] min-h-[260px] max-h-[min(85vh,720px)]">
+        {/* Full banner image — container matches 16:9 so the whole image is visible */}
+        <img
+          src="/banner.png"
+          alt="Qard Hasan Banking — an interest-free alternative"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-950/85 via-primary-900/65 to-primary-800/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-950/70 via-transparent to-primary-900/25" />
+
+        <div className="relative z-10 mx-auto flex h-full max-w-6xl items-end px-4 sm:px-6 pb-10 sm:pb-14 lg:pb-16">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white ring-1 ring-white/20">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-medium text-white ring-1 ring-white/25 backdrop-blur-sm">
               <ShieldCheck className="h-3.5 w-3.5" />
               Interest-free · Transparent · Member-owned
             </span>
-            <h1 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+            <h1 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight drop-shadow-sm">
               Savings &amp; Qard Hasan loans, managed together
             </h1>
-            <p className="mt-5 text-base sm:text-lg text-primary-100 leading-relaxed max-w-xl">
+            <p className="mt-5 text-base sm:text-lg text-primary-50/95 leading-relaxed max-w-xl">
               A modern cooperative platform for monthly contributions, a shared central fund,
               and interest-free loans decided by member voting. Built for trust and clarity.
             </p>
@@ -196,7 +203,7 @@ export default function Home() {
               {user ? (
                 <Link
                   href="/dashboard"
-                  className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary-800 shadow-sm hover:bg-primary-50 transition"
+                  className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary-800 shadow-md hover:bg-primary-50 transition"
                 >
                   Go to Dashboard
                   <ArrowRight className="h-4 w-4" />
@@ -204,7 +211,7 @@ export default function Home() {
               ) : (
                 <Link
                   href="/login"
-                  className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary-800 shadow-sm hover:bg-primary-50 transition"
+                  className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primary-800 shadow-md hover:bg-primary-50 transition"
                 >
                   Get started
                   <ArrowRight className="h-4 w-4" />
@@ -212,7 +219,7 @@ export default function Home() {
               )}
               <a
                 href="#features"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/20 transition"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/40 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/20 transition"
               >
                 Explore features
               </a>
@@ -221,7 +228,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== FEATURES SECTION ========== */}
       <section id="features" className="scroll-mt-20 mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Everything in one place</h2>

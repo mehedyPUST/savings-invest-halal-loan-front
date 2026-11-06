@@ -30,9 +30,14 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen">
-      {/* Left brand panel */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900 p-12 flex-col justify-between text-white">
-        <div>
+      <div className="relative hidden lg:flex lg:w-1/2 overflow-hidden p-12 flex-col justify-between text-white">
+        <img
+          src="/banner.png"
+          alt="Qard Hasan Banking"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-950/85 via-primary-900/75 to-teal-900/60" />
+        <div className="relative z-10">
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/20 backdrop-blur font-bold text-xl">
               CF
@@ -41,18 +46,17 @@ export default function LoginPage() {
           </div>
           <p className="mt-2 text-primary-100">Qard Hasan Management System</p>
         </div>
-        <div>
-          <h1 className="text-4xl font-bold leading-tight">
+        <div className="relative z-10">
+          <h1 className="text-4xl font-bold leading-tight drop-shadow-sm">
             Transparent savings.<br />Interest-free loans.<br />Shared trust.
           </h1>
-          <p className="mt-4 text-primary-100 max-w-md">
+          <p className="mt-4 text-primary-50/95 max-w-md">
             Manage monthly contributions, central fund, and member voting for Qard Hasan loans — all in one modern platform.
           </p>
         </div>
-        <p className="text-sm text-primary-200">Built for cooperatives of ~20 members</p>
+        <p className="relative z-10 text-sm text-primary-100/80">Built for cooperatives of ~20 members</p>
       </div>
 
-      {/* Right form */}
       <div className="flex w-full lg:w-1/2 items-center justify-center p-8">
         <div className="w-full max-w-md">
           <div className="mb-8 lg:hidden text-center">
@@ -87,7 +91,12 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label className="label" htmlFor="password">Password</label>
+              <div className="flex items-center justify-between">
+                <label className="label" htmlFor="password">Password</label>
+                <Link href="/forgot-password" className="text-xs font-medium text-primary-700 hover:text-primary-800">
+                  Forgot password?
+                </Link>
+              </div>
               <input
                 id="password"
                 type="password"

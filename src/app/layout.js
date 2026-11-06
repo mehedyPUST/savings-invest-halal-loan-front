@@ -1,5 +1,6 @@
 import './globals.css';
 import { AuthProvider } from '@/contexts/AuthContext';
+import QueryProvider from '@/components/providers/QueryProvider';
 
 export const metadata = {
   title: 'Cooperative Fund | Qard Hasan Management',
@@ -10,7 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="min-h-screen antialiased">
-        <AuthProvider>{children}</AuthProvider>
+        <QueryProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </QueryProvider>
       </body>
     </html>
   );

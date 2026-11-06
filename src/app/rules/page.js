@@ -158,10 +158,10 @@ export default function RulesPage() {
       </header>
 
       <main className="flex-1">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 py-10 sm:py-14">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-800 mb-6"
+            className="inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-800 mb-8"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to home
@@ -179,8 +179,8 @@ export default function RulesPage() {
             </div>
           </div>
 
-          <div className="mt-8 space-y-5">
-            <section className="card p-6">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+            <section className="card p-6 sm:col-span-2">
               <h2 className="font-semibold text-lg text-primary-800 mb-3">1. What is Qard Hasan?</h2>
               <p className="text-slate-700 text-sm leading-relaxed">
                 A benevolent loan where the borrower repays <strong>exactly the principal</strong>{' '}
@@ -225,8 +225,8 @@ export default function RulesPage() {
               </ul>
             </section>
 
-            <section className="card p-6">
-              <h2 className="font-semibold text-lg text-primary-800 mb-3">4. What is never allowed</h2>
+            <section className="card p-6 sm:col-span-2 border-red-100 bg-red-50/30">
+              <h2 className="font-semibold text-lg text-red-800 mb-3">4. What is never allowed</h2>
               <ul className="list-disc pl-5 text-sm text-slate-700 space-y-1">
                 <li>Interest rate of any kind</li>
                 <li>Service charge calculated as % of loan amount or duration</li>
@@ -267,7 +267,7 @@ export default function RulesPage() {
       </main>
 
       <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-slate-500">
             <p>© {new Date().getFullYear()} Cooperative Fund. All rights reserved.</p>
             <p>Interest-free · Transparent · Member-owned</p>

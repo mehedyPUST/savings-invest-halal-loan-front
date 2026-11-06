@@ -10,13 +10,11 @@ const api = axios.create({
   },
 });
 
-// Response interceptor for common errors
 api.interceptors.response.use(
   (res) => res,
   (error) => {
     if (error.response?.status === 401 && typeof window !== 'undefined') {
-      // Optional: redirect to login if not already there
-      if (!window.location.pathname.includes('/login') && !window.location.pathname.includes('/bootstrap')) {
+      if (!window.location.pathname.includes('/login') && !window.location.pathname.includes('/bootstrap') && !window.location.pathname.includes('/reset-password') && !window.location.pathname.includes('/forgot-password')) {
         window.location.href = '/login';
       }
     }
@@ -26,7 +24,6 @@ api.interceptors.response.use(
 
 export default api;
 
-// Auth
 export const authAPI = {
   login: (data) => api.post('/auth/login', data),
   logout: () => api.post('/auth/logout'),
@@ -34,16 +31,17 @@ export const authAPI = {
   updateProfile: (data) => api.put('/auth/profile', data),
   bootstrapManager: (data) => api.post('/auth/bootstrap-manager', data),
   register: (data) => api.post('/auth/register', data),
+  forgotPassword: (data) => api.post('/auth/forgot-password', data),
+  resetPassword: (data) => api.post('/auth/reset-password', data),
+  changePassword: (data) => api.post('/auth/change-password', data),
 };
 
-// Fund
 export const fundAPI = {
   get: () => api.get('/fund'),
-  history: () => api.get('/fund/history'),
+  history: (params) => api.get('/fund/history', { params }),
   updateTargets: (data) => api.put('/fund/targets', data),
 };
 
-// Savings
 export const savingsAPI = {
   list: (params) => api.get('/savings', { params }),
   createRequest: (data) => api.post('/savings/request', data),
@@ -52,7 +50,6 @@ export const savingsAPI = {
   deny: (id, reason) => api.post(`/savings/deny/${id}`, { reason }),
 };
 
-// Loans
 export const loansAPI = {
   list: (params) => api.get('/loans', { params }),
   get: (id) => api.get(`/loans/${id}`),
@@ -66,8 +63,15 @@ export const loansAPI = {
   repay: (id, data) => api.post(`/loans/${id}/repay`, data),
 };
 
-// Users
 export const usersAPI = {
   list: () => api.get('/users'),
   updateStatus: (id, isActive) => api.patch(`/users/${id}/status`, { isActive }),
+};
+
+export const notificationsAPI = {
+  list: (params) => api.get('/notifications', { params }),
+  unreadCount: () => api.get('/notifications/unread-count'),
+  markRead: (id) => api.post(`/notifications/${id}/read`),
+  markAllRead: () => api.post('/notifications/read-all'),
+  audit: (params) => api.get('/notifications/audit', { params }),
 };
